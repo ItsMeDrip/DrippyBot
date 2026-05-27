@@ -1,4 +1,12 @@
 const mineflayer = require('mineflayer')
+const http = require('http')
+
+// Fake web server to keep Render happy
+http.createServer((req, res) => {
+  res.write('DrippyBot is alive! 🔥')
+  res.end()
+}).listen(3000)
+
 const messages = [
   'Guyz Am Afk For A Bit',
   'Nvm',
@@ -24,14 +32,12 @@ function createBot() {
   bot.once('spawn', () => {
     console.log('Drippy Bot is online! 🔥')
     setTimeout(() => {
-      // Anti AFK - jumps every 30 seconds
       setInterval(() => {
         bot.setControlState('jump', true)
         setTimeout(() => {
           bot.setControlState('jump', false)
         }, 500)
       }, 30000)
-      // Random messages every 60 seconds
       setInterval(() => {
         const msg = messages[Math.floor(Math.random() * messages.length)]
         bot.chat(msg)
