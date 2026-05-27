@@ -23,7 +23,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'DevXDarshXRohit.aternos.me',
     port: 63478,
-    username: 'DrippyBot',
+    username: 'DripBot',
     version: '1.20.1',
     auth: 'offline',
     checkTimeoutInterval: 60000,
