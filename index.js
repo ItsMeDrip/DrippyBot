@@ -1,4 +1,10 @@
 const mineflayer = require('mineflayer')
+const http = require('http')
+
+http.createServer((req, res) => {
+  res.write('DrippyBot is alive! 🔥')
+  res.end()
+}).listen(3000)
 
 function createBot() {
   const bot = mineflayer.createBot({
@@ -8,11 +14,8 @@ function createBot() {
     version: '1.20.1',
     auth: 'offline'
   })
-
   bot.on('spawn', () => {
     console.log('Drippy Bot is online! 🔥')
-
-    // Anti AFK - jumps every 30 seconds
     setInterval(() => {
       bot.setControlState('jump', true)
       setTimeout(() => {
@@ -20,21 +23,17 @@ function createBot() {
       }, 500)
     }, 30000)
   })
-
   bot.on('kicked', (reason) => {
     console.log('Bot got kicked:', reason)
     setTimeout(createBot, 5000)
   })
-
   bot.on('error', (err) => {
     console.log('Error:', err)
     setTimeout(createBot, 5000)
   })
-
   bot.on('end', () => {
     console.log('Bot disconnected, reconnecting...')
     setTimeout(createBot, 5000)
   })
 }
-
 createBot()
