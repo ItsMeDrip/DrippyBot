@@ -17,11 +17,12 @@ function createBot() {
     port: 63478,
     username: 'DrippyBot',
     version: '1.20.1',
-    auth: 'offline'
+    auth: 'offline',
+    checkTimeoutInterval: 60000,
+    connect_timeout: 30000
   })
   bot.once('spawn', () => {
     console.log('Drippy Bot is online! 🔥')
-
     setTimeout(() => {
       // Anti AFK - jumps every 30 seconds
       setInterval(() => {
