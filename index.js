@@ -5,7 +5,7 @@ function createBot() {
     host: 'DevXDarshXRohit.aternos.me',
     port: 63478,
     username: 'DrippyBot',
-    version: '1.8.9',
+    version: '1.20.1',
     auth: 'offline'
   })
 
