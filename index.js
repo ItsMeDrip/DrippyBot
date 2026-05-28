@@ -2,7 +2,7 @@ const mineflayer = require('mineflayer')
 const http = require('http')
 
 http.createServer((req, res) => {
-  res.write('DrippyBot is alive! 🔥')
+  res.write('DripBot is alive! 🔥')
   res.end()
 }).listen(3000)
 
@@ -10,12 +10,12 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'DevXDarshXRohit.aternos.me',
     port: 63478,
-    username: 'DrippyBot',
+    username: 'DripBot',
     version: '1.20.1',
     auth: 'offline'
   })
   bot.on('spawn', () => {
-    console.log('Drippy Bot is online! 🔥')
+    console.log('Drip Bot is online! 🔥')
     setInterval(() => {
       bot.setControlState('jump', true)
       setTimeout(() => {
